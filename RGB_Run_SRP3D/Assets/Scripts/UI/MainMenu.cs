@@ -11,10 +11,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button _eliotTestScene1SceneButton;
     [SerializeField] private Button _testObstaclesSceneButton;
     [SerializeField] private Button _testRailRunnerSceneButton;
+    [SerializeField] private Button _testSoundBoardSceneButton;
     [SerializeField] private Button _testTrackSpawnerSceneButton;
     [SerializeField] private Button _testInputSystemSceneButton;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
         _newGameButton.OnClickAsObservable()
@@ -36,6 +36,11 @@ public class MainMenu : MonoBehaviour
         _testRailRunnerSceneButton.OnClickAsObservable()
             .TakeUntil(_ => !this.isActiveAndEnabled)
             .Subscribe(_ => SceneManager.LoadScene("Test_RailRunner"))
+            .AddTo(this);
+        
+        _testSoundBoardSceneButton.OnClickAsObservable()
+            .TakeUntil(_ => !this.isActiveAndEnabled)
+            .Subscribe(_ => SceneManager.LoadScene("Test_SoundBoard"))
             .AddTo(this);
 
         _testTrackSpawnerSceneButton.OnClickAsObservable()
