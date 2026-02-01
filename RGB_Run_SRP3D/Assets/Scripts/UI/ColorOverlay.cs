@@ -11,6 +11,8 @@ public class ColorOverlay : MonoBehaviour
 
     private UnityEngine.UI.Image _image;
 
+    [SerializeField] private float colorChangeDuration = .5f;
+
     private enum ColorIndex
     {
         Red = 0,
@@ -79,9 +81,17 @@ public class ColorOverlay : MonoBehaviour
             return;
         }
         // Switch to new active color
-        var color = _colors[(int)colorIndex];
-        _image.color = color;
+        //var color = _colors[(int)colorIndex];
+        //_image.color = color;
         _image.enabled = true;
+    }
+
+    private void Update()
+    {
+        Color.RGBToHSV(_image.color, out float currentAngle, out _, out _);
+        Color.RGBToHSV(_colors[(int)_activeColorIndex], out float goalAngle, out _, out _);
+        var h = Mathf.MoveTowardsAngle(currentAngle * 360f, goalAngle * 360f, Time.deltaTime*360/ colorChangeDuration) / 360f;
+        _image.color = Color.HSVToRGB(h, 1, 1);
     }
 
     private void OnValidate()
