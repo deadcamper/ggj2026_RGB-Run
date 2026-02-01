@@ -877,7 +877,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 9c3a680e7c3d27d44bd9f0dd9d33953c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 766ad1b361f3224439bf83f71cb51cb5, type: 2}
+      objectReference: {fileID: 2100000, guid: c4283aaad7824bb48810ef07deab0031, type: 2}
     - target: {fileID: 919132149155446097, guid: 9c3a680e7c3d27d44bd9f0dd9d33953c, type: 3}
       propertyPath: m_Name
       value: RBG_RUN_straighttrack1
