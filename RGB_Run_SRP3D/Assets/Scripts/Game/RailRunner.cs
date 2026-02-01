@@ -62,7 +62,6 @@ public class RailRunner : MonoBehaviour
     {
         // Zero out positioning, though this may not be necessary.
         var localPosition = rail.EvaluatePosition(0f);
-        Debug.Log(localPosition);
         var worldPosition = rail.transform.InverseTransformPoint(localPosition);
         gameObject.transform.position = worldPosition;
 

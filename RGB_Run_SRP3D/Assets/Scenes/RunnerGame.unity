@@ -1117,14 +1117,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7750557902354027782, guid: 609cc46284fe6b542b5ff866fe63f0a0, type: 3}
+      propertyPath: EventOnCollisionEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7848279833111437745, guid: 609cc46284fe6b542b5ff866fe63f0a0, type: 3}
       propertyPath: railSystem
       value: 
       objectReference: {fileID: 2083549847}
-    - target: {fileID: 8424830893016741731, guid: 609cc46284fe6b542b5ff866fe63f0a0, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

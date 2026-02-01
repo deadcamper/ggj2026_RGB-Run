@@ -1,4 +1,5 @@
 using SevenSegmentDisplay;
+using UnityEngine;
 
 public class SingleObstacleSpawner : AbstractObstacleSpawner
 {
@@ -8,5 +9,6 @@ public class SingleObstacleSpawner : AbstractObstacleSpawner
         var obstacle = Instantiate(prefab, transform);
         obstacle.transform.SetPositionAndRotation(transform.position, transform.rotation);
         obstacle.Set(passable, digits);
+        Debug.Log($"Spawned: {obstacle.Number}");
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SevenSegmentDisplay
 {
@@ -12,7 +13,12 @@ namespace SevenSegmentDisplay
         [SerializeField] private MeshRenderer bottomLeftSegment;
         [SerializeField] private MeshRenderer topLeftSegment;
         [SerializeField] private MeshRenderer centerSegment;
-        [SerializeField] new private Collider collider;
+        [FormerlySerializedAs("collider")] [SerializeField] private Collider badCollider;
+        [SerializeField] private Collider goodCollider;
+
+
+        public int Number => _number;
+        private int _number;
 
         private MeshRenderer GetRenderer(Segment segment)
             => segment switch
@@ -30,7 +36,8 @@ namespace SevenSegmentDisplay
         public void Set(bool isClear, Digits validDigits)
         {
             PerRGBChannel<Segments> segments = GetSegments(ref isClear, validDigits, out int? number);
-            Debug.Log(number?.ToString() ?? "null");
+            _number = number ?? -1;
+            // Debug.Log(number?.ToString() ?? "null"); // Useful, but annoying in isolation
             foreach (var segment in SegmentsUtility.AllSegments)
             {
                 GetRenderer(segment).material.color = new Color(
@@ -39,7 +46,8 @@ namespace SevenSegmentDisplay
                     segments.B.Contains(segment) ? 1 : 0);
             }
 
-            collider.enabled = !isClear;
+            badCollider.enabled = !isClear;
+            goodCollider.enabled = isClear;
         }
 
         private PerRGBChannel<Segments> GetSegments(ref bool isClear, Digits validDigits, out int? number)

@@ -14,16 +14,19 @@ public class TrackSegment : MonoBehaviour
     public Transform NextSegmentAnchor => nextSegmentAnchor;
     [SerializeField] private Transform nextSegmentAnchor;
 
-    public void Setup(LinkedListNode<TrackSegment> node, Digits digits)
+    public void Setup(LinkedListNode<TrackSegment> node, Digits digits, bool obstacleEnabled)
     {
         var priorSegment = node.Previous?.Value;
         if (priorSegment != null)
         {
             transform.SetPositionAndRotation(priorSegment.NextSegmentAnchor.position, priorSegment.NextSegmentAnchor.rotation);
         }
-        foreach(var obstacleSpawner in GetComponentsInChildren<AbstractObstacleSpawner>())
+        if (obstacleEnabled)
         {
-            obstacleSpawner.Spawn(obstaclePrefab, digits);
+            foreach (var obstacleSpawner in GetComponentsInChildren<AbstractObstacleSpawner>())
+            {
+                obstacleSpawner.Spawn(obstaclePrefab, digits);
+            }
         }
     }
 }

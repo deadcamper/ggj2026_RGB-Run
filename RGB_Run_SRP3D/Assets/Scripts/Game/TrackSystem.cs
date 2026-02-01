@@ -44,6 +44,7 @@ public class TrackSystem : MonoBehaviour
                 }
             });
         */
+        AddTrackSegment(false); // get an empty going
         SpawnMoreTrack();
         PopTrackSegment();// so we have some behind us
 
@@ -104,7 +105,7 @@ public class TrackSystem : MonoBehaviour
         SpawnMoreTrack();
     }
 
-    private void AddTrackSegment()
+    private void AddTrackSegment(bool hasObstacle = true)
     {
         var priorSegment = track.Last?.Value;
         var prefab = trackSegmentPrefabs[UnityEngine.Random.Range(0, trackSegmentPrefabs.Length)];
@@ -119,7 +120,7 @@ public class TrackSystem : MonoBehaviour
         track.AddLast(segment);
         var node = track.Last;
 
-        segment.Setup(node, Digits.One | Digits.Two | Digits.Three);
+        segment.Setup(node, Digits.One | Digits.Two | Digits.Three, hasObstacle);
     }
 
 
