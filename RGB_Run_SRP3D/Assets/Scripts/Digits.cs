@@ -1,8 +1,24 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.Pool;
 
 namespace SevenSegmentDisplay
 {
+    public enum Digit : byte
+    {
+        Zero = 0,
+        One = 1,
+        Two = 2,
+        Three = 3,
+        Four = 4,
+        Five = 5,
+        Six = 6,
+        Seven = 7,
+        Eight = 8,
+        Nine = 9,
+    }
+
     [Flags]
     public enum Digits : short
     {
@@ -24,8 +40,66 @@ namespace SevenSegmentDisplay
 
         private readonly static Digits[] numbers = new[] { Digits.Zero, Digits.One, Digits.Two, Digits.Three, Digits.Four, Digits.Five, Digits.Six, Digits.Seven, Digits.Eight, Digits.Nine };
 
+        public static void GetRandomDigits(int count, List<Digit> result)
+        {
+            result.Clear();
+            var list = ListPool<int>.Get();
+            list.Clear();
+            list.AddRange(Enumerable.Range(0, 10));
+            for (int i = 0; i < count && list.Count > 0; i++)
+            {
+                result .Add((Digit)list[UnityEngine.Random.Range(0, list.Count)]);
+            }
+            list.Clear();
+            ListPool<int>.Release(list);
+        }
+
+        public static Digits GetRandomDigits(int count)
+        {
+            var list = ListPool<int>.Get();
+            list.Clear();
+            list.AddRange(Enumerable.Range(0, 10));
+            Digits result = default;
+            for (int i = 0; i < count && list.Count > 0; i++)
+            {
+                result |= FromInteger(list[UnityEngine.Random.Range(0, list.Count)]);
+            }
+            list.Clear();
+            ListPool<int>.Release(list);
+            return result;
+        }
+
+        public static void GetIndividualNumbers(this Digits digits, List<int> result)
+        {
+            result.Clear();
+            for (int i = 0; i < 16; i++)
+            {
+                if (digits.IsBitSet(i))
+                {
+                    result.Add(i);
+                }
+            }
+        }
+
+        public static void GetIndividualDigits(this Digits digits, List<Digit> result)
+        {
+            result.Clear();
+            for (int i = 0; i < 16; i++)
+            {
+                if (digits.IsBitSet(i))
+                {
+                    result.Add((Digit)i);
+                }
+            }
+        }
+
+        public static int ToInteger(this Digit value)
+            => (int)value;
+
         public static Digits FromInteger(int value)
             => numbers[value];
+        public static Digits FromDigit(Digit value)
+            => numbers[(int)value];
 
         public static Digits FromIntegers(IEnumerable<int> values)
         {
@@ -33,6 +107,15 @@ namespace SevenSegmentDisplay
             foreach (var number in values)
             {
                 result |= FromInteger(number);
+            }
+            return result;
+        }
+        public static Digits FromDigits(IEnumerable<Digit> values)
+        {
+            Digits result = default;
+            foreach (var number in values)
+            {
+                result |= FromDigit(number);
             }
             return result;
         }
@@ -55,7 +138,6 @@ namespace SevenSegmentDisplay
             int rand = UnityEngine.Random.Range(0, count);
             value = GetNthDigit(digits, rand);
             return true;
-
         }
 
         private static bool IsBitSet(this Digits digits, int index)

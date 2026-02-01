@@ -14,8 +14,11 @@ public class TrackSegment : MonoBehaviour
     public Transform NextSegmentAnchor => nextSegmentAnchor;
     [SerializeField] private Transform nextSegmentAnchor;
 
+    public Digits Digits { get; private set; }
+
     public void Setup(LinkedListNode<TrackSegment> node, Digits digits, bool obstacleEnabled)
     {
+        Digits = digits;
         var priorSegment = node.Previous?.Value;
         if (priorSegment != null)
         {
