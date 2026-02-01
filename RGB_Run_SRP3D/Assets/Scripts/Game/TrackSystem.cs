@@ -6,9 +6,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.Utilities;
+using UnityEngine.Pool;
 
 public class TrackSystem : MonoBehaviour
 {
+    public event Action OnSegmentStarted;
+
     [SerializeField] private TrackSegment[] trackSegmentPrefabs;
 
     public TrackSegment CurrentSegment => track.First.Value;
@@ -103,6 +106,7 @@ public class TrackSystem : MonoBehaviour
             Destroy(tooOldSegment.gameObject);
         }
         SpawnMoreTrack();
+        OnSegmentStarted?.Invoke();
     }
 
     private void AddTrackSegment(bool hasObstacle = true)
@@ -120,7 +124,7 @@ public class TrackSystem : MonoBehaviour
         track.AddLast(segment);
         var node = track.Last;
 
-        segment.Setup(node, Digits.One | Digits.Two | Digits.Three, hasObstacle);
+        segment.Setup(node, hasObstacle ? DigitsUtility.GetRandomDigits(3) : default, hasObstacle);
     }
 
 
@@ -135,11 +139,11 @@ public class TrackSystem : MonoBehaviour
             distance -= 1;
         }
         SpawnMoreTrack();
+        */
         var segment = CurrentSegment;
         if (segment != null)
         {
-            segment.transform.position -= segment.RailsSegment.GetWorldSpacePositionOnRail(rail, distance);
+            //segment.transform.position -= segment.RailsSegment.GetWorldSpacePositionOnRail(segment.RailsSegment.GetMiddleRail()., distance);
         }
-        */
     }
 }

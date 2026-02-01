@@ -27,9 +27,10 @@ public class RailRunner : MonoBehaviour
         splineAnimator.Completed += OnCompletedTrack;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        trackSystem.CurrentSegment.transform.position -= transform.position;
+        transform.position = Vector3.zero;
     }
 
     public void JumpToRailByIndex(int index)
@@ -58,12 +59,14 @@ public class RailRunner : MonoBehaviour
         SetRailAndJump(newRail);
     }
 
+
+
     private void SetRailAndReset(SplineContainer rail)
     {
         // Zero out positioning, though this may not be necessary.
         var localPosition = rail.EvaluatePosition(0f);
         var worldPosition = rail.transform.InverseTransformPoint(localPosition);
-        gameObject.transform.position = worldPosition;
+        gameObject.transform.position -= worldPosition;
 
         splineAnimator.Container = rail;
         splineAnimator.NormalizedTime = 0;
