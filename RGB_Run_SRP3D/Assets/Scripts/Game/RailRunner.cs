@@ -29,8 +29,10 @@ public class RailRunner : MonoBehaviour
 
     void LateUpdate()
     {
-        trackSystem.CurrentSegment.transform.position -= transform.position;
-        transform.position = Vector3.zero;
+        var rate = 10;
+        var delta = Vector3.Lerp(Vector3.zero, transform.position, 1 - Mathf.Exp(-rate * Time.deltaTime));
+        trackSystem.CurrentSegment.transform.position -= delta;
+        transform.position -= delta;
     }
 
     public void JumpToRailByIndex(int index)
