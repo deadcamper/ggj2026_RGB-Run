@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class RGBRunnerPlayer : MonoBehaviour
 {
-    public RailsSystem railSystem;
     public RailRunner railRunner;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

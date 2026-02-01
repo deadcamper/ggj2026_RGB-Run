@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Splines;
 
 // Keeps track of available rails and can move the player from one rail to another.
-public class RailsSystem : MonoBehaviour
+public class RailsSegment : MonoBehaviour
 {
 
     [SerializeField]

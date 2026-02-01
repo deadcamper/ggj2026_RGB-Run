@@ -7,7 +7,7 @@ public class RailRunner : MonoBehaviour
     private SplineAnimate splineAnimator;
 
     [SerializeField]
-    private RailsSystem railSystem;
+    private RailsSegment railSystem;
 
     private SplineContainer activeRail;
 
