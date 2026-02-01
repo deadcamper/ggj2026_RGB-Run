@@ -12,14 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/RunnerGame.unity
     guid: 7d549e18b44cdee4b93fed1d705f1d51
   - enabled: 1
+    path: Assets/Scenes/Debug/EliotTestScene1.unity
+    guid: f3a2cc52c1bd24fe2ab8a047513810f1
+  - enabled: 1
+    path: Assets/Scenes/Debug/Test_ObstaclesScene.unity
+    guid: 92f50665a02b474499a7616affaae751
+  - enabled: 1
     path: Assets/Scenes/Debug/Test_RailRunner.unity
     guid: 39e5cb5e3b151cb478ec912a70a04e66
   - enabled: 1
+    path: Assets/Scenes/Debug/Test_TrackSpawner.unity
+    guid: 4a13bf78f843a2442859bc840ce58124
+  - enabled: 1
     path: Assets/Scenes/Debug/TestInputSystem.unity
     guid: cef8339c49f97e3458b01a2fe2c499cf
-  - enabled: 1
-    path: Assets/Scenes/Debug/EliotTestScene1.unity
-    guid: f3a2cc52c1bd24fe2ab8a047513810f1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

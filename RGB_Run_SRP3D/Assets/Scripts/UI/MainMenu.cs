@@ -8,9 +8,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button _newGameButton;
     
     // Debug scenes
-    [SerializeField] private Button _testRailRunnerSceneButton;
-    [SerializeField] private Button _testInputSystemSceneButton;
     [SerializeField] private Button _eliotTestScene1SceneButton;
+    [SerializeField] private Button _testObstaclesSceneButton;
+    [SerializeField] private Button _testRailRunnerSceneButton;
+    [SerializeField] private Button _testTrackSpawnerSceneButton;
+    [SerializeField] private Button _testInputSystemSceneButton;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
@@ -21,19 +23,29 @@ public class MainMenu : MonoBehaviour
             .AddTo(this);
         
         // Debug scenes
+        _eliotTestScene1SceneButton.OnClickAsObservable()
+            .TakeUntil(_ => !this.isActiveAndEnabled)
+            .Subscribe(_ => SceneManager.LoadScene("EliotTestScene1"))
+            .AddTo(this);
+        
+        _testObstaclesSceneButton.OnClickAsObservable()
+            .TakeUntil(_ => !this.isActiveAndEnabled)
+            .Subscribe(_ => SceneManager.LoadScene("Test_ObstaclesScene"))
+            .AddTo(this);
+        
         _testRailRunnerSceneButton.OnClickAsObservable()
             .TakeUntil(_ => !this.isActiveAndEnabled)
             .Subscribe(_ => SceneManager.LoadScene("Test_RailRunner"))
+            .AddTo(this);
+
+        _testTrackSpawnerSceneButton.OnClickAsObservable()
+            .TakeUntil(_ => !this.isActiveAndEnabled)
+            .Subscribe(_ => SceneManager.LoadScene("Test_TrackSpawner"))
             .AddTo(this);
         
         _testInputSystemSceneButton.OnClickAsObservable()
             .TakeUntil(_ => !this.isActiveAndEnabled)
             .Subscribe(_ => SceneManager.LoadScene("TestInputSystem"))
-            .AddTo(this);
-        
-        _eliotTestScene1SceneButton.OnClickAsObservable()
-            .TakeUntil(_ => !this.isActiveAndEnabled)
-            .Subscribe(_ => SceneManager.LoadScene("EliotTestScene1"))
             .AddTo(this);
     }
 }
