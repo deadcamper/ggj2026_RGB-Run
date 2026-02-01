@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicPlayer;
     
     // AudioRandomContainer sources for randomized sounds
+    [SerializeField] private AudioSource footstepPlayer;
     [SerializeField] private AudioSource whooshPlayer;
     [SerializeField] private AudioSource lensSwitchPlayer;
     [SerializeField] private AudioSource obstacleHitPlayer;
@@ -38,6 +39,7 @@ public class AudioManager : MonoBehaviour
     public enum SoundEventType
     {
         Click,
+        Footstep,
         Whoosh,
         LensSwitch,
         ObstacleHit,
@@ -125,6 +127,11 @@ public class AudioManager : MonoBehaviour
     {
         switch (soundEventType)
         {
+            case SoundEventType.Footstep:
+            {
+                footstepPlayer.Play();
+                return;
+            }
             case SoundEventType.Whoosh:
             {
                 whooshPlayer.Play();
