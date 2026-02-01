@@ -15,8 +15,12 @@ public class AudioManager : MonoBehaviour
     
     // [SerializeField] private AudioClip[] Music;
 
+    // Generic audio sources
     [SerializeField] private AudioSource sfxPlayer;
     [SerializeField] private AudioSource musicPlayer;
+    
+    // AudioRandomContainer sources for randomized sounds
+    [SerializeField] private AudioSource whooshPlayer;
 
     // [SerializeField] private AudioMixer audioMixer;
 
@@ -30,6 +34,7 @@ public class AudioManager : MonoBehaviour
     public enum SoundEventType
     {
         Click,
+        Whoosh,
     }
 
     void Awake()
@@ -111,7 +116,21 @@ public class AudioManager : MonoBehaviour
     
     public void PlaySound(SoundEventType soundEventType)
     {
-        PlayClip(GetAudioClip(soundEventType));
+        switch (soundEventType)
+        {
+            case SoundEventType.Click:
+            {
+                PlaySFXClip(GetAudioClip(soundEventType));
+                return;
+            }
+            case SoundEventType.Whoosh:
+            {
+                whooshPlayer.Play();
+                return;
+            }
+            default:
+                throw new ArgumentException($"Unexpected {nameof(soundEventType)} {soundEventType}", nameof(soundEventType));
+        }
     }
 
     private AudioClip GetAudioClip(SoundEventType soundEventType)
@@ -123,7 +142,7 @@ public class AudioManager : MonoBehaviour
         };
     }
 
-    private void PlayClip(AudioClip clip)
+    private void PlaySFXClip(AudioClip clip)
     {
         Debug.LogWarning($"AudioManager#PlayClip:{clip}");
         sfxPlayer.PlayOneShot(clip);

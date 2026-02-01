@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-8986260396084633059
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 60014__qubodup__swosh-27_{-8986260396084633059}
+  m_AudioClip: {fileID: 8300000, guid: 4315b00b1051743f5b31ace2beee3eea, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-4970199897971002261
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 60008__qubodup__21th-air-movement-sound_{-4970199897971002261}
+  m_AudioClip: {fileID: 8300000, guid: 121ec7b825d374f3587f65c305d34366, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-2865954157767948643
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 60012__qubodup__swing-25_{-2865954157767948643}
+  m_AudioClip: {fileID: 8300000, guid: 0ba72012b4f2441669b6c4020af5ee2c, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-670413145775701182
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 60029__qubodup__swosh-42_{-670413145775701182}
+  m_AudioClip: {fileID: 8300000, guid: 3b5f45b932d4040d5831d14577e3bf4a, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2852868412514208238
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 59988__qubodup__swosh-01-441khz_{2852868412514208238}
+  m_AudioClip: {fileID: 8300000, guid: 1b1edbb558edb430192f60a832abb104, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &4536919794291071612
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 60023__qubodup__swosh-windy-36_{4536919794291071612}
+  m_AudioClip: {fileID: 8300000, guid: 47670bd054d46454e8a04ca0c12d29a4, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: whoosh
+  m_Volume: -5.9
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: -5.333333, y: 5.0196075}
+  m_PitchRandomizationRange: {x: -127.05881, y: 117.64697}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 2852868412514208238}
+  - {fileID: -4970199897971002261}
+  - {fileID: -2865954157767948643}
+  - {fileID: -8986260396084633059}
+  - {fileID: 4536919794291071612}
+  - {fileID: -670413145775701182}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 1
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
