@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(RailsSegment))]
 public class TrackSegment : MonoBehaviour
 {
-    public event Action OnFinished;
+    public RailsSegment RailsSegment => _RailsSegment ?? (_RailsSegment = GetComponent<RailsSegment>());
+    private RailsSegment _RailsSegment;
 
     [SerializeField] private Obstacle obstaclePrefab;
 

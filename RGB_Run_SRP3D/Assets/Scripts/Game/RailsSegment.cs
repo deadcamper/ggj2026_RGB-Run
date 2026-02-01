@@ -9,6 +9,9 @@ public class RailsSegment : MonoBehaviour
     [SerializeField]
     private List<SplineContainer> railPaths;
 
+    public Vector3 GetWorldSpacePositionOnRail(int index, float distance)
+        => railPaths[index].EvaluatePosition(distance);
+
     public int GetIndexForRail(SplineContainer rail)
     {
         int index = railPaths.IndexOf(rail);

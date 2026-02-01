@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957676507298357796}
   - component: {fileID: 7093554078155510023}
+  - component: {fileID: 2622834400120923608}
   m_Layer: 0
   m_Name: BaseTrackSegment
   m_TagString: Untagged
@@ -110,3 +111,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrackSegment
   obstaclePrefab: {fileID: 6706187931966525631, guid: 7232cefae16ef9c48901e4b72ac04966, type: 3}
   nextSegmentAnchor: {fileID: 657548383098305862}
+--- !u!114 &2622834400120923608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937003269643442048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae15f77a5531034e834bbfefd786773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RailsSegment
+  railPaths: []

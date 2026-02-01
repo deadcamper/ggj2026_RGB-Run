@@ -12,14 +12,18 @@ public class TrackSystem : MonoBehaviour
     private LinkedList<TrackSegment> track = new();
     private LinkedList<TrackSegment> oldTrack = new();
 
-    [SerializeField] private int trackSegmentCount;
+    [SerializeField] private int trackSegmentCount = 5;
 
     [SerializeField] private int oldTrackSegmentCount = 1;
+
+    private float distance;
+    private int rail;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         SpawnMoreTrack();
+        PopTrackSegment();// so we have some behind us
     }
 
 
@@ -34,8 +38,10 @@ public class TrackSystem : MonoBehaviour
     private void PopTrackSegment()
     {
         var segment = track.First.Value;
+        var nextSegment = track.First.Next.Value;
+        nextSegment.transform.parent = null;
+        segment.transform.parent = nextSegment.transform;
         track.RemoveFirst();
-        segment.transform.parent = track.First?.Value.transform;
         oldTrack.AddLast(segment);
         while (oldTrack.Count > oldTrackSegmentCount)
         {
@@ -43,15 +49,7 @@ public class TrackSystem : MonoBehaviour
             oldTrack.RemoveFirst();
             Destroy(tooOldSegment.gameObject);
         }
-        SetUpCurrentTrackSegment();
         SpawnMoreTrack();
-
-    }
-
-    private void SetUpCurrentTrackSegment()
-    {
-        CurrentSegment.OnFinished -= PopTrackSegment;
-        CurrentSegment.OnFinished += PopTrackSegment;
     }
 
     private void AddTrackSegment()
@@ -70,10 +68,23 @@ public class TrackSystem : MonoBehaviour
         var node = track.Last;
 
         segment.Setup(node, Digits.One | Digits.Two | Digits.Three);
+    }
 
-        if (node == track.First)
+
+
+    private void Update()
+    {
+        distance += Time.deltaTime * .25f;
+        while (distance > 1)
         {
-            SetUpCurrentTrackSegment();
+            PopTrackSegment();
+            distance -= 1;
+        }
+        SpawnMoreTrack();
+        var segment = CurrentSegment;
+        if (segment != null)
+        {
+            segment.transform.position -= segment.RailsSegment.GetWorldSpacePositionOnRail(rail, distance);
         }
     }
 }

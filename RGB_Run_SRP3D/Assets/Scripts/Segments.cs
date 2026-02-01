@@ -127,8 +127,6 @@ namespace SevenSegmentDisplay
 
         public static bool TryToRandomlySplitNumberIntoSegmentsNotInDigits(int number, Digits validDigits, out PerRGBChannel<Segments> segments)
         {
-            segments = default;
-
             var numberSegments = FromNumber(number);
 
             Segments overlapMask = numberSegments & RandomSegments();
@@ -141,7 +139,6 @@ namespace SevenSegmentDisplay
                 var exclusiveMask = RandomSegments();
                 validA = (numberSegments & exclusiveMask) | overlapMask;
                 ValidB = (numberSegments & ~exclusiveMask) | overlapMask;
-                Debug.Assert((validA | ValidB).IsNumberInDigits(validDigits));
                 obfuscation = RandomSegments();
 
                 if (!(obfuscation | validA).IsNumberInDigits(validDigits) && !(obfuscation | ValidB).IsNumberInDigits(validDigits))
@@ -151,6 +148,8 @@ namespace SevenSegmentDisplay
                 }
             }
 
+            Debug.LogError("Failed to generate segments");
+            segments = default;
             return false;
         }
     }
