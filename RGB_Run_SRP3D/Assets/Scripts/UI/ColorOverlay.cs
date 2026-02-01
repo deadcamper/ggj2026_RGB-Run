@@ -48,10 +48,7 @@ public class ColorOverlay : MonoBehaviour
 
         Observable<(ColorIndex, InputAction.CallbackContext)> MakeActionStartObservable(ColorIndex colorIndex, InputAction inputAction)
         {
-            return Observable.FromEvent<InputAction.CallbackContext>(
-                    action => inputAction.started += action,
-                    action => inputAction.started -= action
-                )
+            return ObservableUtils.InputActionStartedAsObservable(inputAction)
                 .Select(context => (colorIndex, context));
         }
     }
