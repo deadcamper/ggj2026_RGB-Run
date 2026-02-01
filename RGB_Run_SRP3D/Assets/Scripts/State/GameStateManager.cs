@@ -1,6 +1,7 @@
 using System;
 using R3;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -30,8 +31,8 @@ public class GameStateManager : MonoBehaviour
     {
         if (gameState == GameStateType.Playing && _gameState.Value != GameStateType.Playing)
         {
-            // Reset game state
-            _score.Value = 0;
+            // Reload scene to reset game state
+            SceneManager.LoadScene("RunnerGame");
         } 
         _gameState.Value = gameState;
     }
