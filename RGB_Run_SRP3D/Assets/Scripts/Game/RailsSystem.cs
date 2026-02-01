@@ -19,6 +19,19 @@ public class RailsSystem : MonoBehaviour
         return index;
     }
 
+    /// <summary>
+    /// Used when trying to leap from rail to rail.
+    /// 
+    /// Returns rail by index, BOUNDED by size of paths.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public SplineContainer GetRail(int index)
+    {
+        index = Mathf.Clamp(index, 0, railPaths.Count - 1);
+        return railPaths[index];
+    }
+
     public SplineContainer GetMiddleRail()
     {
         int mid = railPaths.Count / 2;

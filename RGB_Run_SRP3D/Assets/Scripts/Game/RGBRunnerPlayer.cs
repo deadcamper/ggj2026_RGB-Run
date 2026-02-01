@@ -1,17 +1,13 @@
 using UnityEngine;
-using UnityEngine.Splines;
 
 public class RGBRunnerPlayer : MonoBehaviour
 {
     public RailsSystem railSystem;
     public RailRunner railRunner;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SplineContainer rail = railSystem.GetMiddleRail();
-        railRunner.SetRailAndReset(rail);
     }
 
     // Update is called once per frame
@@ -19,4 +15,33 @@ public class RGBRunnerPlayer : MonoBehaviour
     {
         
     }
+
+    #region Debug buttons
+    void OnActionOne()
+    {
+        railRunner.JumpToRailByIndex(0);
+    }
+
+    void OnActionTwo()
+    {
+        railRunner.JumpToRailByIndex(1);
+    }
+
+    void OnActionThree()
+    {
+        railRunner.JumpToRailByIndex(2);
+    }
+    #endregion
+
+    void OnMoveLeft()
+    {
+        railRunner.JumpToRailByOffset(-1);
+    }
+
+    void OnMoveRight()
+    {
+        railRunner.JumpToRailByOffset(1);
+    }
+
+
 }
