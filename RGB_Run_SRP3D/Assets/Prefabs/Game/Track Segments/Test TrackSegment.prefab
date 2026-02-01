@@ -877,7 +877,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 9c3a680e7c3d27d44bd9f0dd9d33953c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6466d68dddbc76e48822f6361b84c319, type: 2}
+      objectReference: {fileID: 2100000, guid: 766ad1b361f3224439bf83f71cb51cb5, type: 2}
     - target: {fileID: 919132149155446097, guid: 9c3a680e7c3d27d44bd9f0dd9d33953c, type: 3}
       propertyPath: m_Name
       value: RBG_RUN_straighttrack1
@@ -885,10 +885,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 9c3a680e7c3d27d44bd9f0dd9d33953c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2079376661256868884}
   m_SourcePrefab: {fileID: 100100000, guid: 9c3a680e7c3d27d44bd9f0dd9d33953c, type: 3}
 --- !u!4 &4246693926987949034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9c3a680e7c3d27d44bd9f0dd9d33953c, type: 3}
   m_PrefabInstance: {fileID: 4424207041297482753}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5488008797592994185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 9c3a680e7c3d27d44bd9f0dd9d33953c, type: 3}
+  m_PrefabInstance: {fileID: 4424207041297482753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2079376661256868884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488008797592994185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a6d098acd27f748ae8cf3f3022d872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanMaterial
+  speed: 0.01
