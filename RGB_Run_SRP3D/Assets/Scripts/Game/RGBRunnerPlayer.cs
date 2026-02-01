@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
+using R3;
 
 public class RGBRunnerPlayer : MonoBehaviour
 {
     public RailRunner railRunner;
+
+    public GameObject playerModel;
 
     public bool debugModeOn = false;
 
@@ -16,14 +19,30 @@ public class RGBRunnerPlayer : MonoBehaviour
     {
         // Good
         OnGoodSegmentTrigger.AddListener(() => {
-            Services.instance.Get<ScoreManager>()?.AddScore(1);
+            Services.instance.Get<GameStateManager>()?.AddScore(1);
             Services.instance.Get<AudioManager>()?.PlaySound(AudioManager.SoundEventType.Whoosh);
         });
 
         // Bad
-        OnBadSegmentTrigger.AddListener(() => {
+        OnBadSegmentTrigger.AddListener(() =>
+        {
+            Services.instance.Get<GameStateManager>()?.SetGameState(GameStateManager.GameStateType.GameOver);
+            playerModel.SetActive(false);
             Services.instance.Get<AudioManager>()?.PlaySound(AudioManager.SoundEventType.ObstacleHit);
         });
+        
+        // Listen for change back to playing state
+        Services.instance.Get<GameStateManager>().GameState
+            .AsObservable()
+            .DistinctUntilChanged()
+            .Where(gameState => gameState == GameStateManager.GameStateType.Playing)
+            .TakeWhile(_ => this.isActiveAndEnabled)
+            .Subscribe(gameState =>
+            {
+                Debug.Log($"RGBRunnerPlayer observed gamestate change to: {gameState}");
+                playerModel.SetActive(true);
+            })
+            .AddTo(this);
     }
 
     // Update is called once per frame

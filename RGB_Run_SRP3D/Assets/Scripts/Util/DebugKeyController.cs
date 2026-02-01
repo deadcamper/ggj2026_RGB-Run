@@ -12,13 +12,13 @@ public class DebugKeyController : MonoBehaviour
             .TakeUntil(_ => !this.isActiveAndEnabled)
             .Subscribe(_ =>
             {
-                Services.instance.Get<ScoreManager>()?.AddScore(1u);
+                Services.instance.Get<GameStateManager>()?.AddScore(1u);
                 // Debug.Log($"Add score pressed");
             })
             .AddTo(this);
         
         //debug log
-        Services.instance.Get<ScoreManager>().Score
+        Services.instance.Get<GameStateManager>().Score
             .TakeUntil(_ => !this.isActiveAndEnabled)
             .Subscribe(score =>
             {

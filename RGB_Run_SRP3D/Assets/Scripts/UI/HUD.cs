@@ -9,13 +9,13 @@ public class HUD : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
-        ScoreManager scoreMgr = Services.instance.Get<ScoreManager>();
-        if (! scoreMgr)
+        GameStateManager gameStateMgr = Services.instance.Get<GameStateManager>();
+        if (! gameStateMgr)
         {
             Debug.LogError("Failed to find the ScoreManager in Services. HUD will have default texts.", this);
             return;
         }
-        Services.instance.Get<ScoreManager>().Score
+        Services.instance.Get<GameStateManager>().Score
             .TakeUntil(_ => !this.isActiveAndEnabled)
             .SubscribeToText(_scoreLabel, score=> $"Score: {score}")
             .AddTo(this);

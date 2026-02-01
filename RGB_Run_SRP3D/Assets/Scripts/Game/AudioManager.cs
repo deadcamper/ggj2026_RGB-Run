@@ -93,6 +93,17 @@ public class AudioManager : MonoBehaviour
                 PlaySound(soundEventType);
             })
             .AddTo(this);
+
+        // Play game over sound after a delay
+        Services.instance.Get<GameStateManager>().GameState
+            .AsObservable()
+            .Where(gameState => gameState == GameStateManager.GameStateType.GameOver)
+            .Delay(new TimeSpan(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 500))
+            .Subscribe(gameState =>
+            {
+                PlaySound(SoundEventType.GameOver);
+            })
+            .AddTo(this);
     }
 
     /*

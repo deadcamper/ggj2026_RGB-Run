@@ -16,7 +16,8 @@ public class SoundEventTriggerOnClick : MonoBehaviour
             .TakeWhile(_ => this.isActiveAndEnabled)
             .Subscribe(_ =>
             {
-                EventBus.Post(new EventBus.SoundEvent(_soundEventType));
+                // EventBus.Post(new EventBus.SoundEvent(_soundEventType));
+                Services.instance.Get<AudioManager>()?.PlaySound(_soundEventType);
             })
             .AddTo(this);
     }
