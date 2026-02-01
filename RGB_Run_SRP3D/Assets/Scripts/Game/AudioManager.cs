@@ -5,18 +5,25 @@ using System.Linq;
 using R3;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
     // public string[] VolumeParameters => volumeParameters;
     // public AudioMixer AudioMixer => audioMixer;
 
-    [SerializeField] private AudioClip Click;
+    [SerializeField] private AudioClip ClickClip;
+    [SerializeField] private AudioClip GameOverClip;
     
     // [SerializeField] private AudioClip[] Music;
 
+    // Generic audio sources
     [SerializeField] private AudioSource sfxPlayer;
     [SerializeField] private AudioSource musicPlayer;
+    
+    // AudioRandomContainer sources for randomized sounds
+    [SerializeField] private AudioSource whooshPlayer;
+    [SerializeField] private AudioSource obstacleHitPlayer;
 
     // [SerializeField] private AudioMixer audioMixer;
 
@@ -30,6 +37,9 @@ public class AudioManager : MonoBehaviour
     public enum SoundEventType
     {
         Click,
+        Whoosh,
+        ObstacleHit,
+        GameOver,
     }
 
     void Awake()
@@ -111,19 +121,37 @@ public class AudioManager : MonoBehaviour
     
     public void PlaySound(SoundEventType soundEventType)
     {
-        PlayClip(GetAudioClip(soundEventType));
+        switch (soundEventType)
+        {
+            case SoundEventType.Whoosh:
+            {
+                whooshPlayer.Play();
+                return;
+            }
+            case SoundEventType.ObstacleHit:
+            {
+                obstacleHitPlayer.Play();
+                return;
+            }
+            default:
+            {
+                PlaySFXClip(GetAudioClip(soundEventType));
+                return;
+            }
+        }
     }
 
     private AudioClip GetAudioClip(SoundEventType soundEventType)
     {
         return soundEventType switch
         {
-            SoundEventType.Click => Click,
+            SoundEventType.Click => ClickClip,
+            SoundEventType.GameOver => GameOverClip,
             _ => throw new ArgumentOutOfRangeException(nameof(soundEventType), soundEventType, null)
         };
     }
 
-    private void PlayClip(AudioClip clip)
+    private void PlaySFXClip(AudioClip clip)
     {
         Debug.LogWarning($"AudioManager#PlayClip:{clip}");
         sfxPlayer.PlayOneShot(clip);
