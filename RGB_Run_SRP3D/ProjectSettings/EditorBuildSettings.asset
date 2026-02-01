@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/RunnerGame.unity
     guid: 7d549e18b44cdee4b93fed1d705f1d51
   - enabled: 1
-    path: Assets/Scenes/Test_RailRunner.unity
+    path: Assets/Scenes/Debug/Test_RailRunner.unity
     guid: 39e5cb5e3b151cb478ec912a70a04e66
   - enabled: 1
-    path: Assets/Scenes/TestInputSystem.unity
+    path: Assets/Scenes/Debug/TestInputSystem.unity
     guid: cef8339c49f97e3458b01a2fe2c499cf
   - enabled: 1
     path: Assets/Scenes/Debug/EliotTestScene1.unity
