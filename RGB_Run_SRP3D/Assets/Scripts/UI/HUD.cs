@@ -17,7 +17,7 @@ public class HUD : MonoBehaviour
         }
         Services.instance.Get<GameStateManager>().Score
             .TakeUntil(_ => !this.isActiveAndEnabled)
-            .SubscribeToText(_scoreLabel, score=> $"Score: {score}")
+            .SubscribeToText(_scoreLabel, score=> $"Score - {score}")
             .AddTo(this);
     }
 }
