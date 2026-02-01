@@ -833,6 +833,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
   _newGameButton: {fileID: 2130248082}
+  forceHideDebugArea: 1
+  _debugLevelSelectArea: {fileID: 1893914284}
   _eliotTestScene1SceneButton: {fileID: 1368001631}
   _testObstaclesSceneButton: {fileID: 1287852799}
   _testRailRunnerSceneButton: {fileID: 1068825989}
