@@ -6,7 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
     public ReadOnlyReactiveProperty<uint> Score => _score;
     private readonly ReactiveProperty<uint> _score = new();
-    
+
     void Awake()
     {
         Services.instance.Set(this);
@@ -23,5 +23,10 @@ public class ScoreManager : MonoBehaviour
         // Debug.Log($"Old score:{_score.Value}");
         _score.Value += score;
         // Debug.Log($"New score:{_score.Value}");
+    }
+
+    public void ResetScore()
+    {
+        _score.Value = 0;
     }
 }

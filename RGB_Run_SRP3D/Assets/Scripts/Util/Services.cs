@@ -8,7 +8,7 @@ public class Services {
     //Instance
     private Dictionary<Type, object> services = new Dictionary<Type, object>();
 
-    public Services() 
+    private Services() 
     {
         if (_instance != null)
         {
@@ -30,7 +30,10 @@ public class Services {
     }
 
     public void Set<T>(T service) where T : class {
-        services.Add(typeof(T), service);
+        if (service == null)
+            services.Remove((typeof(T)));
+        else
+            services.Add(typeof(T), service);
     }
 
     public T Get<T>() where T : class {

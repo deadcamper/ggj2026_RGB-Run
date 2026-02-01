@@ -14,6 +14,16 @@ public class RGBRunnerPlayer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Good
+        OnGoodSegmentTrigger.AddListener(() => {
+            Services.instance.Get<ScoreManager>()?.AddScore(1);
+            Services.instance.Get<AudioManager>()?.PlaySound(AudioManager.SoundEventType.Whoosh);
+        });
+
+        // Bad
+        OnBadSegmentTrigger.AddListener(() => {
+            Services.instance.Get<AudioManager>()?.PlaySound(AudioManager.SoundEventType.ObstacleHit);
+        });
     }
 
     // Update is called once per frame
