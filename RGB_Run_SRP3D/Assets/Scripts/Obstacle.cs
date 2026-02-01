@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SevenSegmentDisplay
 {
-    public class SevenSegmentDisplay : MonoBehaviour
+    public class Obstacle : MonoBehaviour
     {
         [SerializeField] private MeshRenderer topSegment;
         [SerializeField] private MeshRenderer topRightSegment;

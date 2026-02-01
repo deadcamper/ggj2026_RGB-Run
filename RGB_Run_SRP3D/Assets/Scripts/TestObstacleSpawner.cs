@@ -12,11 +12,11 @@ public class TestObstacleSpawner : MonoBehaviour
 {
     private event Action OnDebugAction;
 
-    [SerializeField] private SevenSegmentDisplay.SevenSegmentDisplay obstaclePrefab;
+    [SerializeField] private SevenSegmentDisplay.Obstacle obstaclePrefab;
 
     [SerializeField] private Digits digits;
 
-    private SevenSegmentDisplay.SevenSegmentDisplay testInstance;
+    private SevenSegmentDisplay.Obstacle testInstance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
