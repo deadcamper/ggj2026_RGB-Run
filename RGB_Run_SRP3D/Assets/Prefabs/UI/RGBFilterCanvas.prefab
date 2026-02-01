@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 033496384405911468da16b629fef4ac, type: 2}
   m_Color: {r: 0.039215688, g: 0.9254898, b: 0.9254902, a: 0.68235296}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -89,9 +89,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorOverlay
   _colors:
-  - {r: 0.039215688, g: 0.9254902, b: 0.92548996, a: 0.68235296}
-  - {r: 0.9254902, g: 0.039215688, b: 0.9208546, a: 0.68235296}
-  - {r: 0.9254902, g: 0.78509706, b: 0.039215688, a: 0.68235296}
+  - {r: 1, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 1, a: 0.69803923}
+  - {r: 1, g: 0, b: 1, a: 0.69803923}
   _activeColorIndex: 2147483647
   canToggleOff: 1
 --- !u!1 &6151405219341984534

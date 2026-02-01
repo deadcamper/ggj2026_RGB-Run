@@ -192,7 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92d14a3cc6118d4bb10fbeaf741fa64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RGBRunnerPlayer
-  railSystem: {fileID: 0}
   railRunner: {fileID: 2845736430703382315}
 --- !u!1 &7585391028586141334
 GameObject:
@@ -241,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RailRunner
   splineAnimator: {fileID: 4292700710182678238}
-  railSystem: {fileID: 0}
+  trackSystem: {fileID: 0}
 --- !u!114 &4292700710182678238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +258,7 @@ MonoBehaviour:
   m_LoopMode: 1
   m_Method: 1
   m_Duration: 69.64155
-  m_MaxSpeed: 3
+  m_MaxSpeed: 15
   m_EasingMode: 0
   m_AlignmentMode: 2
   m_ObjectForwardAxis: 2
@@ -308,8 +307,8 @@ Camera:
   m_GameObject: {fileID: 8645093403897874559}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

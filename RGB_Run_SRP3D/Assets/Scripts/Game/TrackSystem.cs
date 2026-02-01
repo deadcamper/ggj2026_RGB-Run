@@ -25,14 +25,15 @@ public class TrackSystem : MonoBehaviour
 
     private float distance;
 
-    private int rail;
+    //private int rail;
 
-    private IDisposable keypressListener;
+    //private IDisposable keypressListener;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        rail = railCount / 2;
+        //rail = railCount / 2;
+        /*
         keypressListener =  InputSystem.onEvent
             .Where(e => e.HasButtonPress())
             .Call(eventPtr =>
@@ -42,7 +43,7 @@ public class TrackSystem : MonoBehaviour
                     HandleKeyPress(key.keyCode);
                 }
             });
-
+        */
         SpawnMoreTrack();
         PopTrackSegment();// so we have some behind us
 
@@ -50,9 +51,10 @@ public class TrackSystem : MonoBehaviour
 
     void OnDestroy()
     {
-        keypressListener?.Dispose();
+        //keypressListener?.Dispose();
     }
 
+    /*
     private void HandleKeyPress(Key key)
     {
         switch(key)
@@ -67,7 +69,15 @@ public class TrackSystem : MonoBehaviour
                 break;
         }
     }
+    */
 
+    public TrackSegment RequestNewTrack()
+    {
+        SpawnMoreTrack();
+        PopTrackSegment();
+
+        return CurrentSegment;
+    }
 
     private void SpawnMoreTrack()
     {
@@ -116,6 +126,7 @@ public class TrackSystem : MonoBehaviour
 
     private void Update()
     {
+        /*
         distance += Time.deltaTime * .25f;
         while (distance > 1)
         {
@@ -128,5 +139,6 @@ public class TrackSystem : MonoBehaviour
         {
             segment.transform.position -= segment.RailsSegment.GetWorldSpacePositionOnRail(rail, distance);
         }
+        */
     }
 }

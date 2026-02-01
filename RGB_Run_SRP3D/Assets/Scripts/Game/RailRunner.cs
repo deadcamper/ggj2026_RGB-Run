@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Splines;
 
 public class RailRunner : MonoBehaviour
@@ -6,27 +7,34 @@ public class RailRunner : MonoBehaviour
     [SerializeField]
     private SplineAnimate splineAnimator;
 
+    //[SerializeField]
+    //[FormerlySerializedAs("railSystem")]
+    private RailsSegment railSegment;
+
     [SerializeField]
-    private RailsSegment railSystem;
+    private TrackSystem trackSystem;
 
     private SplineContainer activeRail;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SplineContainer rail = railSystem.GetMiddleRail();
+        railSegment = trackSystem.CurrentSegment.RailsSegment;
+
+        SplineContainer rail = railSegment.GetMiddleRail();
         SetRailAndReset(rail);
+
+        splineAnimator.Completed += OnCompletedTrack;
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void JumpToRailByIndex(int index)
     {
-        SplineContainer newRail = railSystem.GetRail(index);
+        SplineContainer newRail = railSegment.GetRail(index);
 
         if (newRail == activeRail)
             return;
@@ -36,13 +44,13 @@ public class RailRunner : MonoBehaviour
 
     public void JumpToRailByOffset(int signum)
     {
-        int prevRailNum = railSystem.GetIndexForRail(activeRail);
+        int prevRailNum = railSegment.GetIndexForRail(activeRail);
         int railNum = prevRailNum + signum;
 
         // Debug log
         //Debug.Log($"{prevRailNum} -> {railNum}");
 
-        SplineContainer newRail = railSystem.GetRail(railNum);
+        SplineContainer newRail = railSegment.GetRail(railNum);
 
         if (newRail == activeRail)
             return;
@@ -86,5 +94,18 @@ public class RailRunner : MonoBehaviour
         splineAnimator.NormalizedTime = extraNormalCurvePos;
 
         activeRail = rail;
+    }
+
+    private void OnCompletedTrack()
+    {
+        int oldIndex = railSegment.GetIndexForRail(activeRail);
+
+        TrackSegment trackSegment = trackSystem.RequestNewTrack();
+        RailsSegment rseg = trackSegment.RailsSegment;
+
+        SplineContainer newRail = rseg.GetRail(oldIndex);
+
+        railSegment = rseg;
+        SetRailAndReset(newRail);
     }
 }
