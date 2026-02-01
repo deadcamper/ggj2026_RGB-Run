@@ -12,7 +12,7 @@ public class ObstacleSetSpawner : AbstractObstacleSpawner
         {
             var obstacleLocation = locations[i];
             var obstacle = Instantiate(prefab, transform);
-            transform.SetPositionAndRotation(obstacleLocation.position, obstacleLocation.rotation);
+            obstacle.transform.SetPositionAndRotation(obstacleLocation.position, obstacleLocation.rotation);
             obstacle.Set(i == safeIndex, digits);
         }
     }
