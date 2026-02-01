@@ -47,3 +47,5 @@ MonoBehaviour:
   trackSegmentPrefabs:
   - {fileID: 4881412838984692228, guid: 5533776b754ea6c4b85367c6ed50825f, type: 3}
   trackSegmentCount: 5
+  oldTrackSegmentCount: 1
+  railCount: 3

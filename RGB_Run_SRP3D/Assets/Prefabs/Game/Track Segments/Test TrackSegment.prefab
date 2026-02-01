@@ -1,5 +1,117 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1620060478794092959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6029885509606957587}
+  - component: {fileID: 1600903291368575359}
+  m_Layer: 0
+  m_Name: Spline (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6029885509606957587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620060478794092959}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4243532888041603367}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600903291368575359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620060478794092959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineContainer
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 2
+        y: 0
+        z: 0
+      TangentIn:
+        x: 0
+        y: 0
+        z: 0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+    - Position:
+        x: 2
+        y: 0
+        z: 50
+      TangentIn:
+        x: 0
+        y: 0
+        z: 0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: 0.00000000772589
+          y: -5.3802808e-17
+          z: 0.0000000069639623
+          w: 1
+    m_MetaData:
+    - Mode: 1
+      Tension: 0.5
+    - Mode: 1
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1 &2688780780345664036
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +399,7 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: 0
+        x: -2
         y: 0
         z: 0
       TangentIn:
@@ -305,7 +417,7 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: 0
+        x: -2
         y: 0
         z: 50
       TangentIn:
@@ -482,6 +594,118 @@ MonoBehaviour:
   - {fileID: 5611052351340522625}
   - {fileID: 1764273987692103531}
   - {fileID: 1946507806016448046}
+--- !u!1 &8158008611678794348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8383923735902590462}
+  - component: {fileID: 1081707658963357372}
+  m_Layer: 0
+  m_Name: Spline (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8383923735902590462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158008611678794348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4243532888041603367}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1081707658963357372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158008611678794348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineContainer
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 0
+        y: 0
+        z: 0
+      TangentIn:
+        x: 0
+        y: 0
+        z: 0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+    - Position:
+        x: 0
+        y: 0
+        z: 50
+      TangentIn:
+        x: 0
+        y: 0
+        z: 0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: 0.00000000772589
+          y: -5.3802808e-17
+          z: 0.0000000069639623
+          w: 1
+    m_MetaData:
+    - Mode: 1
+      Tension: 0.5
+    - Mode: 1
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1001 &2436199754666681091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -536,12 +760,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2622834400120923608, guid: 7c8bb1e953502f04a87a8bea259f8778, type: 3}
       propertyPath: railPaths.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2622834400120923608, guid: 7c8bb1e953502f04a87a8bea259f8778, type: 3}
       propertyPath: 'railPaths.Array.data[0]'
       value: 
       objectReference: {fileID: 7713024849796140243}
+    - target: {fileID: 2622834400120923608, guid: 7c8bb1e953502f04a87a8bea259f8778, type: 3}
+      propertyPath: 'railPaths.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1081707658963357372}
+    - target: {fileID: 2622834400120923608, guid: 7c8bb1e953502f04a87a8bea259f8778, type: 3}
+      propertyPath: 'railPaths.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1600903291368575359}
     - target: {fileID: 8937003269643442048, guid: 7c8bb1e953502f04a87a8bea259f8778, type: 3}
       propertyPath: m_Name
       value: Test TrackSegment
@@ -558,6 +790,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1957676507298357796, guid: 7c8bb1e953502f04a87a8bea259f8778, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1329708864813779878}
+    - targetCorrespondingSourceObject: {fileID: 1957676507298357796, guid: 7c8bb1e953502f04a87a8bea259f8778, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8383923735902590462}
+    - targetCorrespondingSourceObject: {fileID: 1957676507298357796, guid: 7c8bb1e953502f04a87a8bea259f8778, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6029885509606957587}
     - targetCorrespondingSourceObject: {fileID: 3789051742642428065, guid: 7c8bb1e953502f04a87a8bea259f8778, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1658121748640207692}

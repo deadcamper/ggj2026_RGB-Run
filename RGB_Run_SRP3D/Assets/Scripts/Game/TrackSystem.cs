@@ -1,6 +1,11 @@
 using SevenSegmentDisplay;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.Utilities;
 
 public class TrackSystem : MonoBehaviour
 {
@@ -16,14 +21,51 @@ public class TrackSystem : MonoBehaviour
 
     [SerializeField] private int oldTrackSegmentCount = 1;
 
+    [SerializeField] private int railCount = 3;
+
     private float distance;
+
     private int rail;
+
+    private IDisposable keypressListener;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        rail = railCount / 2;
+        keypressListener =  InputSystem.onEvent
+            .Where(e => e.HasButtonPress())
+            .Call(eventPtr =>
+            {
+                foreach (var key in eventPtr.GetAllButtonPresses().OfType<KeyControl>())
+                {
+                    HandleKeyPress(key.keyCode);
+                }
+            });
+
         SpawnMoreTrack();
         PopTrackSegment();// so we have some behind us
+
+    }
+
+    void OnDestroy()
+    {
+        keypressListener?.Dispose();
+    }
+
+    private void HandleKeyPress(Key key)
+    {
+        switch(key)
+        {
+            case Key.A:
+                if (rail > 0)
+                    rail--;
+                break;
+            case Key.D:
+                if (rail < railCount - 1) 
+                    rail++;
+                break;
+        }
     }
 
 

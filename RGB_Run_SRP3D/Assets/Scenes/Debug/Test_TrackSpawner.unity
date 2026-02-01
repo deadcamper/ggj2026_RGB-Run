@@ -746,6 +746,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158153337111595060, guid: e5c4169e03fbe7b498e1ec5faf182d4c, type: 3}
+      propertyPath: railCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 181597270684786679, guid: e5c4169e03fbe7b498e1ec5faf182d4c, type: 3}
       propertyPath: m_Name
       value: TrackSystem
