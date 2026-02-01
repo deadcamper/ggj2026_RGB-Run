@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
     
     // AudioRandomContainer sources for randomized sounds
     [SerializeField] private AudioSource whooshPlayer;
+    [SerializeField] private AudioSource obstacleHitPlayer;
 
     // [SerializeField] private AudioMixer audioMixer;
 
@@ -35,6 +36,7 @@ public class AudioManager : MonoBehaviour
     {
         Click,
         Whoosh,
+        ObstacleHit,
     }
 
     void Awake()
@@ -126,6 +128,11 @@ public class AudioManager : MonoBehaviour
             case SoundEventType.Whoosh:
             {
                 whooshPlayer.Play();
+                return;
+            }
+            case SoundEventType.ObstacleHit:
+            {
+                obstacleHitPlayer.Play();
                 return;
             }
             default:

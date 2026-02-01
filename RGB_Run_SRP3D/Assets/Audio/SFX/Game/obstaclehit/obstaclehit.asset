@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-8256448375520518174
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 121665__halleck__metal-hits-medium-1_{-8256448375520518174}
+  m_AudioClip: {fileID: 8300000, guid: 91f0ada8c42d84331833f895ec839831, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-6216473069073505790
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 121664__halleck__metal-hits-light-1_{-6216473069073505790}
+  m_AudioClip: {fileID: 8300000, guid: c7c3d0d0ea44640ff839ed26e6bc0656, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-2654047648101200435
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 121665__halleck__metal-hits-medium-1-slice2_{-2654047648101200435}
+  m_AudioClip: {fileID: 8300000, guid: bae32fff5a153440b93da8e19cb58c0f, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1898003500656557184
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 121668__halleck__metal-medium-hit_{-1898003500656557184}
+  m_AudioClip: {fileID: 8300000, guid: 1336bede027d3408d89d3242bb5b2831, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &439335219817282397
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 121684__halleck__metal-thump-springy_{439335219817282397}
+  m_AudioClip: {fileID: 8300000, guid: 39de008a2cf8449d793f6354b708cc9e, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &528424749456815422
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 121665__halleck__metal-hits-medium-1-slice3_{528424749456815422}
+  m_AudioClip: {fileID: 8300000, guid: ed05e4923941c467bbc1a83c55191587, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &722047904304066288
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 121661__halleck__metal-heavy-thumps-slice3_{722047904304066288}
+  m_AudioClip: {fileID: 8300000, guid: 1e5a28f844c2444f6ad84fdcc808a54c, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2680758135837470776
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 121661__halleck__metal-heavy-thumps-slice2_{2680758135837470776}
+  m_AudioClip: {fileID: 8300000, guid: a8cacd9394e4c4033ae9dafc63fa2d4d, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &5183694186067375677
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 121661__halleck__metal-heavy-thumps_{5183694186067375677}
+  m_AudioClip: {fileID: 8300000, guid: c944698303b6d4023a6f87be23406099, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: obstaclehit
+  m_Volume: -2
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: -2, y: 2}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 5183694186067375677}
+  - {fileID: 2680758135837470776}
+  - {fileID: 722047904304066288}
+  - {fileID: -6216473069073505790}
+  - {fileID: -8256448375520518174}
+  - {fileID: -2654047648101200435}
+  - {fileID: 528424749456815422}
+  - {fileID: -1898003500656557184}
+  - {fileID: 439335219817282397}
+  - {fileID: 8568761117685922807}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 1
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &8568761117685922807
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 121743__halleck__wood-hit_{8568761117685922807}
+  m_AudioClip: {fileID: 8300000, guid: 42b0983a259834f3096df6e472b3747a, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
