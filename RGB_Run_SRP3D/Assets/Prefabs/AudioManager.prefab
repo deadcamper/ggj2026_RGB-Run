@@ -564,7 +564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a420220c1d2a24203a124edc07efb175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  Click: {fileID: 8300000, guid: d90269c378fd54e7a9cc6e7332f840a7, type: 3}
+  ClickClip: {fileID: 8300000, guid: d90269c378fd54e7a9cc6e7332f840a7, type: 3}
+  GameOverClip: {fileID: 8300000, guid: 298ba88af9b834bedaa47f6f12d144a8, type: 3}
   sfxPlayer: {fileID: 3157511068411147408}
   musicPlayer: {fileID: 2222285792463917668}
   whooshPlayer: {fileID: 3055242968037478390}

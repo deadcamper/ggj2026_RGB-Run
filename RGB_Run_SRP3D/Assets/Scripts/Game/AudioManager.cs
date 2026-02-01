@@ -5,13 +5,15 @@ using System.Linq;
 using R3;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
     // public string[] VolumeParameters => volumeParameters;
     // public AudioMixer AudioMixer => audioMixer;
 
-    [SerializeField] private AudioClip Click;
+    [SerializeField] private AudioClip ClickClip;
+    [SerializeField] private AudioClip GameOverClip;
     
     // [SerializeField] private AudioClip[] Music;
 
@@ -37,6 +39,7 @@ public class AudioManager : MonoBehaviour
         Click,
         Whoosh,
         ObstacleHit,
+        GameOver,
     }
 
     void Awake()
@@ -120,11 +123,6 @@ public class AudioManager : MonoBehaviour
     {
         switch (soundEventType)
         {
-            case SoundEventType.Click:
-            {
-                PlaySFXClip(GetAudioClip(soundEventType));
-                return;
-            }
             case SoundEventType.Whoosh:
             {
                 whooshPlayer.Play();
@@ -136,7 +134,10 @@ public class AudioManager : MonoBehaviour
                 return;
             }
             default:
-                throw new ArgumentException($"Unexpected {nameof(soundEventType)} {soundEventType}", nameof(soundEventType));
+            {
+                PlaySFXClip(GetAudioClip(soundEventType));
+                return;
+            }
         }
     }
 
@@ -144,7 +145,8 @@ public class AudioManager : MonoBehaviour
     {
         return soundEventType switch
         {
-            SoundEventType.Click => Click,
+            SoundEventType.Click => ClickClip,
+            SoundEventType.GameOver => GameOverClip,
             _ => throw new ArgumentOutOfRangeException(nameof(soundEventType), soundEventType, null)
         };
     }
