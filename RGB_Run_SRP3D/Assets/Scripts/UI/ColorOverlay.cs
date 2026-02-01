@@ -19,12 +19,14 @@ public class ColorOverlay : MonoBehaviour
         None = int.MaxValue
     }
     
-    private ColorIndex _activeColorIndex = ColorIndex.None;
+    [SerializeField] private ColorIndex _activeColorIndex = ColorIndex.None;
+
+    [SerializeField] private bool canToggleOff = true;
 
     private void Start()
     {
         _image = GetComponent<UnityEngine.UI.Image>();
-        _image.enabled = false;
+        SetFilter(_activeColorIndex);
     }
 
     void OnEnable()
@@ -55,21 +57,31 @@ public class ColorOverlay : MonoBehaviour
 
     void OnColorToggle((ColorIndex, InputAction.CallbackContext) toggleEvent)
     {
-        Debug.Log($"OnColorToggle: {toggleEvent}");
+        //Debug.Log($"OnColorToggle: {toggleEvent}");
         var (colorIndex, _) = toggleEvent;
-        if (colorIndex == ColorIndex.None || colorIndex == _activeColorIndex)
+        if (canToggleOff && colorIndex == _activeColorIndex)
         {
             // This is a toggle-off event, turn off overlay image
-            _image.enabled = false;
             _activeColorIndex = ColorIndex.None;
+        }
+        else
+        {
+            _activeColorIndex = colorIndex;
+        }
+        SetFilter(_activeColorIndex);
+    }
+
+    void SetFilter(ColorIndex colorIndex)
+    {
+        if(colorIndex == ColorIndex.None)
+        {
+            _image.enabled = false;
             return;
         }
-
         // Switch to new active color
         var color = _colors[(int)colorIndex];
         _image.color = color;
         _image.enabled = true;
-        _activeColorIndex = colorIndex;
     }
 
     private void OnValidate()
