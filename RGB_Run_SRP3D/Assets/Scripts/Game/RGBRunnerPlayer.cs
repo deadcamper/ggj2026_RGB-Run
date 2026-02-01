@@ -4,6 +4,9 @@ public class RGBRunnerPlayer : MonoBehaviour
 {
     public RailRunner railRunner;
 
+    public RailsSegment startingSegment;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,28 +21,28 @@ public class RGBRunnerPlayer : MonoBehaviour
     #region Debug buttons
     void OnActionOne()
     {
-        railRunner.JumpToRailByIndex(0);
+        railRunner.JumpToTrackByIndex(0);
     }
 
     void OnActionTwo()
     {
-        railRunner.JumpToRailByIndex(1);
+        railRunner.JumpToTrackByIndex(1);
     }
 
     void OnActionThree()
     {
-        railRunner.JumpToRailByIndex(2);
+        railRunner.JumpToTrackByIndex(2);
     }
     #endregion
 
     void OnMoveLeft()
     {
-        railRunner.JumpToRailByOffset(-1);
+        railRunner.JumpToTrackByOffset(-1);
     }
 
     void OnMoveRight()
     {
-        railRunner.JumpToRailByOffset(1);
+        railRunner.JumpToTrackByOffset(1);
     }
 
 

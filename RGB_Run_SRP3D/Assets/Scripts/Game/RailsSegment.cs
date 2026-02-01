@@ -7,11 +7,12 @@ public class RailsSegment : MonoBehaviour
 {
 
     [SerializeField]
-    private List<SplineContainer> railPaths;
+    [UnityEngine.Serialization.FormerlySerializedAs("railPaths")]
+    private List<SplineContainer> railTracks;
 
-    public int GetIndexForRail(SplineContainer rail)
+    public int GetIndexForRailTrack(SplineContainer rail)
     {
-        int index = railPaths.IndexOf(rail);
+        int index = railTracks.IndexOf(rail);
         if (index == -1)
         {
             Debug.LogError($"Rail index not found for rail {rail}.");
@@ -26,16 +27,16 @@ public class RailsSegment : MonoBehaviour
     /// </summary>
     /// <param name="index"></param>
     /// <returns></returns>
-    public SplineContainer GetRail(int index)
+    public SplineContainer GetRailTrack(int index)
     {
-        index = Mathf.Clamp(index, 0, railPaths.Count - 1);
-        return railPaths[index];
+        index = Mathf.Clamp(index, 0, railTracks.Count - 1);
+        return railTracks[index];
     }
 
-    public SplineContainer GetMiddleRail()
+    public SplineContainer GetMiddleRailTrack()
     {
-        int mid = railPaths.Count / 2;
-        return railPaths[mid];
+        int mid = railTracks.Count / 2;
+        return railTracks[mid];
     }
 
 }

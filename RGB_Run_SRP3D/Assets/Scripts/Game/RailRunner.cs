@@ -7,50 +7,50 @@ public class RailRunner : MonoBehaviour
     private SplineAnimate splineAnimator;
 
     [SerializeField]
-    private RailsSegment railSystem;
+    [UnityEngine.Serialization.FormerlySerializedAs("railSystem")]
+    private RailsSegment activeRailSegment;
 
-    private SplineContainer activeRail;
+    private SplineContainer activeRailTrack;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SplineContainer rail = railSystem.GetMiddleRail();
-        SetRailAndReset(rail);
+        SplineContainer rail = activeRailSegment.GetMiddleRailTrack();
+        SetTrackAndReset(rail);
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
-    public void JumpToRailByIndex(int index)
+    public void JumpToTrackByIndex(int index)
     {
-        SplineContainer newRail = railSystem.GetRail(index);
+        SplineContainer newRail = activeRailSegment.GetRailTrack(index);
 
-        if (newRail == activeRail)
+        if (newRail == activeRailTrack)
             return;
 
-        SetRailAndJump(newRail);
+        SetTrackAndJump(newRail);
     }
 
-    public void JumpToRailByOffset(int signum)
+    public void JumpToTrackByOffset(int signum)
     {
-        int prevRailNum = railSystem.GetIndexForRail(activeRail);
+        int prevRailNum = activeRailSegment.GetIndexForRailTrack(activeRailTrack);
         int railNum = prevRailNum + signum;
 
         // Debug log
         //Debug.Log($"{prevRailNum} -> {railNum}");
 
-        SplineContainer newRail = railSystem.GetRail(railNum);
+        SplineContainer newRail = activeRailSegment.GetRailTrack(railNum);
 
-        if (newRail == activeRail)
+        if (newRail == activeRailTrack)
             return;
 
-        SetRailAndJump(newRail);
+        SetTrackAndJump(newRail);
     }
 
-    private void SetRailAndReset(SplineContainer rail)
+    private void SetTrackAndReset(SplineContainer rail)
     {
         // Zero out positioning, though this may not be necessary.
         var localPosition = rail.EvaluatePosition(0f);
@@ -62,10 +62,10 @@ public class RailRunner : MonoBehaviour
         splineAnimator.NormalizedTime = 0;
         splineAnimator.Restart(true);
 
-        activeRail = rail;
+        activeRailTrack = rail;
     }
 
-    private void SetRailAndJump(SplineContainer rail)
+    private void SetTrackAndJump(SplineContainer rail)
     {
         Vector3 position = transform.position;
 
@@ -85,6 +85,6 @@ public class RailRunner : MonoBehaviour
 
         splineAnimator.NormalizedTime = extraNormalCurvePos;
 
-        activeRail = rail;
+        activeRailTrack = rail;
     }
 }
