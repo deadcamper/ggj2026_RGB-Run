@@ -88,10 +88,13 @@ public class ColorOverlay : MonoBehaviour
 
     private void Update()
     {
-        Color.RGBToHSV(_image.color, out float currentAngle, out _, out _);
-        Color.RGBToHSV(_colors[(int)_activeColorIndex], out float goalAngle, out _, out _);
-        var h = Mathf.MoveTowardsAngle(currentAngle * 360f, goalAngle * 360f, Time.deltaTime*360/ colorChangeDuration) / 360f;
-        _image.color = Color.HSVToRGB(h, 1, 1);
+        if (_activeColorIndex != ColorIndex.None)
+        {
+            Color.RGBToHSV(_image.color, out float currentAngle, out _, out _);
+            Color.RGBToHSV(_colors[(int)_activeColorIndex], out float goalAngle, out _, out _);
+            var h = Mathf.MoveTowardsAngle(currentAngle * 360f, goalAngle * 360f, Time.deltaTime * 360 / colorChangeDuration) / 360f;
+            _image.color = Color.HSVToRGB(h, 1, 1);
+        }
     }
 
     private void OnValidate()
