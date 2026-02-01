@@ -23,7 +23,8 @@ public class ColorRotator : MonoBehaviour
     void Update()
     {
         hue = hue + (Time.deltaTime * speed / 360);
-        hue %= 360;
+        if (hue > 1)
+            hue--;
 
         image.color = Color.HSVToRGB(hue, saturation, value);
     }
