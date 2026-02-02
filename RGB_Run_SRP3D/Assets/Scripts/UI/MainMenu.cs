@@ -6,7 +6,11 @@ using R3;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Button _newGameButton;
-    
+
+    // Debug area
+    public bool forceHideDebugArea = false;
+    [SerializeField] private GameObject _debugLevelSelectArea;
+
     // Debug scenes
     [SerializeField] private Button _eliotTestScene1SceneButton;
     [SerializeField] private Button _testObstaclesSceneButton;
@@ -52,5 +56,8 @@ public class MainMenu : MonoBehaviour
             .TakeUntil(_ => !this.isActiveAndEnabled)
             .Subscribe(_ => SceneManager.LoadScene("TestInputSystem"))
             .AddTo(this);
+
+        // Hide the debug area if we're not in editor mode
+        _debugLevelSelectArea.SetActive(!forceHideDebugArea & Application.isEditor);
     }
 }

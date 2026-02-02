@@ -13,7 +13,7 @@ public class GameOverScreen : MonoBehaviour
     private void OnEnable()
     {
         var score = Services.instance.Get<GameStateManager>().Score;
-        _scoreLabel.text = $"Score: {score}";
+        _scoreLabel.text = $"Score - {score}";
         
         _restartButton.OnClickAsObservable()
             .TakeUntil(_ => !this.isActiveAndEnabled)
