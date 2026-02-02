@@ -18,6 +18,6 @@ wav_files_relative = glob.glob('../RGB_Run_SRP3D/Assets/Audio/SFX/**/*.wav', rec
 wav_file_attributions = [parse_filename(p) for p in wav_files_relative]
 # print("wav_file_attributions: " + str(len(wav_file_attributions)))
 print("This game uses the following sounds from freesound.org under Creative Commons licenses, see links for license details.")
-for name in wav_file_attributions:
-    print(name)
+for attribution_str in wav_file_attributions:
+    print(f" * {attribution_str}")
 
