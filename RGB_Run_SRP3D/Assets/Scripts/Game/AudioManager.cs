@@ -6,14 +6,20 @@ using R3;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     // public string[] VolumeParameters => volumeParameters;
     // public AudioMixer AudioMixer => audioMixer;
 
+    // One-shot simple SFX clips
     [SerializeField] private AudioClip ClickClip;
     [SerializeField] private AudioClip GameOverClip;
+    
+    // Music clips
+    [SerializeField] private AudioClip MenuMusic;
+    [SerializeField] private AudioClip GameMusic;
     
     // [SerializeField] private AudioClip[] Music;
 
@@ -26,6 +32,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource whooshPlayer;
     [SerializeField] private AudioSource lensSwitchPlayer;
     [SerializeField] private AudioSource obstacleHitPlayer;
+
+    private IDisposable _gameStateSubscription;
 
     // [SerializeField] private AudioMixer audioMixer;
 
@@ -44,6 +52,12 @@ public class AudioManager : MonoBehaviour
         LensSwitch,
         ObstacleHit,
         GameOver,
+    }
+
+    public enum MusicEventType
+    {
+        Menu,
+        Game,
     }
 
     void Awake()
@@ -79,6 +93,8 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        SceneManager.activeSceneChanged += ChangedActiveScene;
+        
         EventBus.Events
             .Where(eventRecord => eventRecord.Kind == EventBus.EventType.SoundEvent)
             .Subscribe(eventRecord =>
@@ -94,16 +110,50 @@ public class AudioManager : MonoBehaviour
             })
             .AddTo(this);
 
+        PlayMusicBasedOnScene(SceneManager.GetActiveScene());
+        
+        TryResubscribeGameState();
+    }
+    
+    private void ChangedActiveScene(Scene current, Scene next)
+    {
+        Debug.Log($"ChangedActiveScene current:{current} next.name:{next.name}");
+        PlayMusicBasedOnScene(next);
+        TryResubscribeGameState();
+    }
+
+    private void TryResubscribeGameState()
+    {
+        _gameStateSubscription?.Dispose();
+        _gameStateSubscription = null;
+        
         // Play game over sound after a delay
-        Services.instance.Get<GameStateManager>().GameState
+        _gameStateSubscription = Services.instance.Get<GameStateManager>()?.GameState
             .AsObservable()
             .Where(gameState => gameState == GameStateManager.GameStateType.GameOver)
-            .Delay(new TimeSpan(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 500))
+            .Delay(new TimeSpan(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 250))
             .Subscribe(gameState =>
             {
                 PlaySound(SoundEventType.GameOver);
             })
             .AddTo(this);
+    }
+
+    void PlayMusicBasedOnScene(Scene scene)
+    {
+        switch (scene.name)
+        {
+            case "MainMenu":
+            {
+                PlayMusicClip(GetMusicClip(MusicEventType.Menu));
+                return;
+            }
+            case "RunnerGame":
+            {
+                PlayMusicClip(GetMusicClip(MusicEventType.Game));
+                return;
+            }
+        }
     }
 
     /*
@@ -175,6 +225,16 @@ public class AudioManager : MonoBehaviour
             _ => throw new ArgumentOutOfRangeException(nameof(soundEventType), soundEventType, null)
         };
     }
+    
+    private AudioClip GetMusicClip(MusicEventType musicEventType)
+    {
+        return musicEventType switch
+        {
+            MusicEventType.Menu => MenuMusic,
+            MusicEventType.Game => GameMusic,
+            _ => throw new ArgumentOutOfRangeException(nameof(musicEventType), musicEventType, null)
+        };
+    }
 
     private void PlaySFXClip(AudioClip clip)
     {
@@ -184,6 +244,7 @@ public class AudioManager : MonoBehaviour
     
     private void PlayMusicClip(AudioClip clip)
     {
-        musicPlayer.PlayOneShot(clip);
+        musicPlayer.clip = clip;
+        musicPlayer.Play();
     }
 }

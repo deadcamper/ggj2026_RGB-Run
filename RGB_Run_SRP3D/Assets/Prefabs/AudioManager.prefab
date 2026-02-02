@@ -436,9 +436,9 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -697,6 +697,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   ClickClip: {fileID: 8300000, guid: d90269c378fd54e7a9cc6e7332f840a7, type: 3}
   GameOverClip: {fileID: 8300000, guid: 298ba88af9b834bedaa47f6f12d144a8, type: 3}
+  MenuMusic: {fileID: 8300000, guid: e84827aa5ab8b4423b60ace1fb899f14, type: 3}
+  GameMusic: {fileID: 8300000, guid: 25b306b503ce548b88a67f7f32c19c8a, type: 3}
   sfxPlayer: {fileID: 3157511068411147408}
   musicPlayer: {fileID: 2222285792463917668}
   footstepPlayer: {fileID: 5159850333804975518}

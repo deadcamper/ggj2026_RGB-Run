@@ -162,6 +162,7 @@ public class ColorOverlay : MonoBehaviour
         _activeColorIndex = newColor;
 
         SetFilter(newColor);
+        Services.instance.Get<AudioManager>()?.PlaySound(AudioManager.SoundEventType.LensSwitch);
     }
 
     void SetFilter(ColorIndex colorIndex)
