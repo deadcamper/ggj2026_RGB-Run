@@ -1210,6 +1210,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2137135818461842962, guid: 39f7f4b498179494780bf9ddc171551f, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137135818461842962, guid: 39f7f4b498179494780bf9ddc171551f, type: 3}
+      propertyPath: trackSystem
+      value: 
+      objectReference: {fileID: 148568675}
+    - target: {fileID: 2137135818461842962, guid: 39f7f4b498179494780bf9ddc171551f, type: 3}
+      propertyPath: splineAnimate
+      value: 
+      objectReference: {fileID: 1845483839}
     - target: {fileID: 2829749110955032239, guid: 39f7f4b498179494780bf9ddc171551f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 555.30646
@@ -1396,6 +1408,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+--- !u!114 &1845483839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4292700710182678238, guid: 609cc46284fe6b542b5ff866fe63f0a0, type: 3}
+  m_PrefabInstance: {fileID: 7139378717673996954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineAnimate
 --- !u!1001 &1848939916
 PrefabInstance:
   m_ObjectHideFlags: 0

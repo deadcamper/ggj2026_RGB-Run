@@ -50,19 +50,19 @@ public class ColorOverlay : MonoBehaviour
 
         ObservableUtils.InputActionStartedAsObservable(onOffAction)
             .TakeUntil(_ => !this.isActiveAndEnabled)
-            .Debounce(TimeSpan.FromSeconds(scollCoolDown))
+            //.Debounce(TimeSpan.FromSeconds(scollCoolDown))
             .Subscribe(OnColorToggle)
             .AddTo(this);
 
         ObservableUtils.InputActionStartedAsObservable(scrollUpAction)
             .TakeUntil(_ => !this.isActiveAndEnabled)
-            .Debounce(TimeSpan.FromSeconds(scollCoolDown))
+            //.Debounce(TimeSpan.FromSeconds(scollCoolDown))
             .Subscribe(OnColorScrollUp)
             .AddTo(this);
 
         ObservableUtils.InputActionStartedAsObservable(scrollDownAction)
             .TakeUntil(_ => !this.isActiveAndEnabled)
-            .Debounce(TimeSpan.FromSeconds(scollCoolDown))
+            //.Debounce(TimeSpan.FromSeconds(scollCoolDown))
             .Subscribe(OnColorScrollDown)
             .AddTo(this);
     }
