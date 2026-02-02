@@ -2,6 +2,8 @@
 
 RGB Runner is an endless runner game made for the [Global Game Jam 2026](https://globalgamejam.org/games/2026/rgb-run-7) where you must apply a set of colored lenses to decipher the code and find a safe path through.
 
+You can [play it in your browser](https://eliot-l.itch.io/rgb-runner)!
+
 ## Controls
 
 W/Up Arrow/Scroll Wheel Up - Next Lens
