@@ -640,6 +640,17 @@
                 },
                 {
                     "name": "",
+                    "id": "628eac6a-7ea2-411d-af2f-7d807729cb34",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollUpFilter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ff832ff2-bdfb-4f81-9fa3-cbae071c0f35",
                     "path": "<Mouse>/scroll/down",
                     "interactions": "",
@@ -653,6 +664,17 @@
                     "name": "",
                     "id": "5a60c3c2-0209-4cac-a386-1cded06a83f8",
                     "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollDownFilter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b4f8c1d5-c4e3-41d2-83f2-74fc2f99d387",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
