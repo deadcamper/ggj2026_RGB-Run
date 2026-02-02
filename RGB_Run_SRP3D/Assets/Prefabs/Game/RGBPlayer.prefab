@@ -605,6 +605,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2351855138852436610, guid: 66eeb9d65e89f4c739c87b7a56e4d71d, type: 3}
+      propertyPath: scollCoolDown
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351855138852436610, guid: 66eeb9d65e89f4c739c87b7a56e4d71d, type: 3}
+      propertyPath: colorChangeDuration
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6151405219341984534, guid: 66eeb9d65e89f4c739c87b7a56e4d71d, type: 3}
       propertyPath: m_Name
       value: RGBFilterCanvas
